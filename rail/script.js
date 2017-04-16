@@ -2,6 +2,8 @@ $(document).ready(function() {
 	var stations;
 	var REGION = "hyd-mmts";
 	var CONTEXT = "http://apps-pratiks.rhcloud.com/rest/rail/";
+	console.log(document.querySelector('.mdl-layout'));
+	console.log(document.querySelector('.mdl-layout').CssClasses_.IS_DRAWER_OPEN);
 	if(document.querySelector('.mdl-layout').MaterialLayout) {
 		document.querySelector('.mdl-layout').MaterialLayout.drawerToggleHandler_();
 	}
