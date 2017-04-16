@@ -23,6 +23,20 @@
 	margin-left: 20px;
 }
 
+.header-color {
+    background-color: rgb(33,150,243);
+    color: rgb(255,255,255);
+    padding: 0px;
+    margin: 0 0 0 0px;
+}
+
+.spinner {
+    position: fixed;
+    left: 47%;
+    top: 47%;
+    z-index: 100;
+}
+
 .icon-width{
 	width: 1%;
 }

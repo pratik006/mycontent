@@ -66,8 +66,13 @@
           </div>
         </div>
       </header>
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Find Trains</span>
+      <div class="mdl-layout__drawer mdl-layout--no-desktop-drawer-button">
+        <div class="mdl-grid  header-color">
+          <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-phone">
+            <span class="mdl-layout-title">Find Trains</span>
+          </div>
+        </div>
+        
         <nav class="mdl-navigation">
           <form id="frmSearch" action="#">
             <div class="mdl-grid">
@@ -92,12 +97,14 @@
               <div class="mdl-cell mdl-cell--6-col">
                 <button id="btnSearch" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Search</button>
               </div>
+
             </div>
           </form>
         </nav>
       </div>
       <main class="mdl-layout__content">
         <div class="page-content">
+          <div class="mdl-spinner mdl-js-spinner"></div>
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-phone">
               <div id="timetable" style="display: none;">

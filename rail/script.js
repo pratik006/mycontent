@@ -2,10 +2,9 @@ $(document).ready(function() {
 	var stations;
 	var REGION = "hyd-mmts";
 	var CONTEXT = "http://apps-pratiks.rhcloud.com/rest/rail/";
-	console.log(document.querySelector('.mdl-layout'));
-	console.log(document.querySelector('.mdl-layout').CssClasses_.IS_DRAWER_OPEN);
-	if(document.querySelector('.mdl-layout').MaterialLayout) {
-		document.querySelector('.mdl-layout').MaterialLayout.drawerToggleHandler_();
+
+	if(!$('.mdl-layout').hasClass('is-visible')) {
+		$( '.mdl-layout__drawer, .mdl-layout__obfuscator' ).addClass( 'is-visible' );
 	}
 
     var from = $(".typeahead");
@@ -14,6 +13,11 @@ $(document).ready(function() {
 	  $(".typeahead").typeahead({ source:stations });
 	},'json');
 
+    $(".mdl-layout__content").click(function() {
+    	if($('.mdl-layout__drawer, .mdl-layout__obfuscator').hasClass('is-visible')) {
+			$( '.mdl-layout__drawer, .mdl-layout__obfuscator' ).removeClass( 'is-visible' );
+		}
+    });
 	$(".typeahead").change(function() {
 	  var current = $(".typeahead").typeahead("getActive");
 	  if (current) {
@@ -30,6 +34,9 @@ $(document).ready(function() {
 	});
 
 	$("#btnSearch").click(function() {
+		$( '.mdl-layout__drawer, .mdl-layout__obfuscator' ).removeClass( 'is-visible' );
+		$(".mdl-spinner").addClass("is-active");
+		$(".mdl-spinner").addClass("spinner");
 		var from, to;
 		stations.forEach(function(station) {
 			if ($("#from").val() == station.name) {
@@ -49,8 +56,9 @@ $(document).ready(function() {
 			
 			$("#timetable > table > tbody > tr").remove();
 			$.get(url, function(trains) {
-
-				document.querySelector('.mdl-layout').MaterialLayout.drawerToggleHandler_();
+				$(".mdl-spinner").removeClass("is-active");
+				//document.querySelector('.mdl-layout').MaterialLayout.drawerToggleHandler_();
+				
 				$("#timetable").show();
 				if (trains.length == 0) {
 					var text = "No Trains";
@@ -81,7 +89,7 @@ $(document).ready(function() {
 				});
 				
 				$("tr.accordion").click(function() {
-					console.log('clicked');
+
 					/* Toggle between adding and removing the "active" class,
 			        to highlight the button that controls the panel */
 			        this.classList.toggle("active");
@@ -90,14 +98,17 @@ $(document).ready(function() {
 			        /* Toggle between hiding and showing the active panel */
 			        var panel = this.nextElementSibling;
 			        if (panel.style.display === "table-row") {
+			        	$(panel).fadeOut(500);
 			            panel.style.display = "none";
 			            $(this).find("i").html("add");
 			        } else {
+			        	$(panel).fadeIn(500);
 			            panel.style.display = "table-row";
 			            $(this).find("i").html("remove");
+
 			        }
-
-
+			        
+			        
 			        
 				});
 				
