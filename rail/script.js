@@ -2,11 +2,8 @@ $(document).ready(function() {
 	var stations;
 	var REGION = "hyd-mmts";
 	var CONTEXT = "http://apps-pratiks.rhcloud.com/rest/rail/";
-	//var CONTEXT = "http://localhost:8080/rest/rail/";
-	//var CONTEXT = "http://192.168.0.102:8080/rest/rail/";
 	if(document.querySelector('.mdl-layout').MaterialLayout) {
 		document.querySelector('.mdl-layout').MaterialLayout.drawerToggleHandler_();
-		//$('.mdl-layout').addClass('drawer-collapsed-width');
 	}
 
     var from = $(".typeahead");
