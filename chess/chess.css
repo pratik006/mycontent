@@ -1,0 +1,19 @@
+.hidden {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+.table {padding-top: 1px;}
+.table > .row {
+	margin-top: -1px;
+	width: 100%;
+	border-top: 1px;
+	border-bottom: 1px;
+	border-left: 1px;
+	border-right: 1px;
+	border-style: solid;
+	border-collapse: collapse;
+}
